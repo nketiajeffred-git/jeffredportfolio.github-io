@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You • Nketia Jeffred</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'] } } } }
+      ;(function(){
+        const storageTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storageTheme === 'dark' || (!storageTheme && systemDark)) { document.documentElement.classList.add('dark'); }
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link rel="icon" href="https://fav.farm/⭐" />
+  </head>
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased">
+    <main class="min-h-screen grid place-items-center p-6">
+      <div class="card max-w-lg text-center">
+        <div class="mx-auto mb-4 inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h1 class="text-2xl font-bold">Thank you!</h1>
+        <p class="section-text">Your message has been sent successfully. I'll get back to you as soon as possible.</p>
+        <a href="/index.html" class="btn-primary mt-6 inline-flex">Back to Home</a>
+      </div>
+    </main>
+  </body>
+</html>

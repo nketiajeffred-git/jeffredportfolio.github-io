@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio • Jeffredoan</title>
+    <meta name="description" content="Professional portfolio of Nketia Jeffred Atta Owusu: BTech Computer Technology graduate specializing in AI/ML, web development, and innovative tech solutions."/>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://fav.farm/⭐" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind config (extend theme)
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+            colors: {
+              brand: {
+                50: '#eff6ff',
+                100: '#dbeafe',
+                200: '#bfdbfe',
+                300: '#93c5fd',
+                400: '#60a5fa',
+                500: '#3b82f6',
+                600: '#2563eb',
+                700: '#1d4ed8',
+                800: '#1e40af',
+                900: '#1e3a8a'
+              }
+            },
+            boxShadow: {
+              glow: '0 10px 40px rgba(59,130,246,0.25)'
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Swiper for testimonials -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-uo9bq8yqf6GQzq9mH3cQyq3wVw2n3l1b0o5v5xZJcQg8b1m7uG2W4V9+8b1q2lQ7lB3j6i7d3l9m2f7k0r9Lw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Prefers color scheme init to avoid FOUC -->
+    <script>
+      (function() {
+        const storageTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const html = document.documentElement;
+        
+        if (storageTheme === 'dark') {
+          html.classList.add('dark');
+        } else if (storageTheme === 'color') {
+          html.classList.add('color-mode');
+        } else if (!storageTheme && systemDark) {
+          html.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+
+  <body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100 antialiased">
+    <!-- Background decoration -->
+    <div class="pointer-events-none fixed inset-0 -z-10">
+      <div class="absolute right-[-10%] top-[-10%] h-[40rem] w-[40rem] rounded-full bg-brand-500/20 blur-3xl"></div>
+      <div class="absolute left-[-10%] bottom-[-10%] h-[40rem] w-[40rem] rounded-full bg-purple-500/10 blur-3xl"></div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-slate-950/70 border-b border-slate-200/60 dark:border-slate-800/60">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6">
+        <a href="#" class="flex items-center gap-2 text-lg font-bold">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-white shadow-glow">
+            NJ
+          </span>
+          <span>Nketia Jeffred Atta Owusu</span>
+        </a>
+
+        <div class="hidden items-center gap-8 md:flex">
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#experience" class="nav-link">Experience</a>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button id="themeToggle" class="rounded-lg p-2 border border-slate-200 text-slate-700 hover:bg-slate-100 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800 flex items-center gap-1" aria-label="Toggle theme" title="Toggle theme">
+            <span id="themeIcon"><i class="fa-solid fa-moon"></i></span>
+            <span id="themeLabel" class="sr-only md:not-sr-only md:ml-1 md:text-xs">Light</span>
+          </button>
+          <button id="menuToggle" class="rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800 md:hidden" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden border-t border-slate-200 dark:border-slate-800 md:hidden">
+        <div class="mx-auto max-w-7xl px-4 py-3 md:px-6">
+          <div class="grid gap-2">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Experience</a>
+            <a href="#testimonials" class="mobile-link">Testimonials</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section id="hero" class="relative">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24 md:px-6 lg:py-28">
+        <div data-aos="fade-up" class="space-y-6">
+          <div class="inline-flex items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-brand-700 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-200">
+            <span class="h-2 w-2 rounded-full bg-brand-500"></span>
+            <span class="text-xs font-medium">Available for freelance work<p> Open to roles and trainee programs</p></span>
+          </div>
+          <h1 class="text-4xl font-extrabold leading-tight sm:text-5xl">
+            Hi, I'm <span class="text-brand-600 dark:text-brand-400">Nketia Jeffred Atta Owusu</span> 
+            innovating with AI, ML & cutting-edge technology.
+          </h1>
+          <p class="text-lg text-slate-600 dark:text-slate-300">
+            BTech Computer Technology graduate specializing in Artificial Intelligence, Machine Learning, and Web Development. Passionate about driving innovation through research, building scalable applications, and solving real-world problems with technology.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a href="#projects" class="btn-primary"><i class="fa-solid fa-rocket mr-2"></i>View Projects</a>
+            <a href="#contact" class="btn-secondary"><i class="fa-solid fa-envelope mr-2"></i>Contact Me</a>
+            <a href="NKETIA JEFFRED_CV u.pdf" class="btn-ghost" target="_blank"><i class="fa-solid fa-file-lines mr-2"></i>Resume</a>
+          </div>
+          <div class="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+            <a href="#" aria-label="GitHub" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-github text-2xl"></i></a>
+            <a href="https://www.linkedin.com/in/jeffred-nketia-b81401280?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BLDGt%2Fj8mT5S9R5cTKVenKQ%3D%3D" aria-label="LinkedIn" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+            <a href="#" aria-label="Twitter" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
+          </div>
+        </div>
+        <div data-aos="zoom-in" class="relative">
+          <div class="aspect-square w-full max-w-md rounded-3xl bg-gradient-to-br from-brand-500/20 via-purple-500/20 to-fuchsia-500/20 p-1 shadow-glow md:ml-auto">
+            <div class="flex h-full w-full items-center justify-center rounded-2xl bg-white/70 backdrop-blur dark:bg-slate-900/70">
+              <img src="jeff.JPG" alt="Profile" class="h-73 w-73 rounded-2xl object-cover shadow-lg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-text">
+I am a Computer Technology graduate passionate about IT support, data systems, cybersecurity, and emerging technologies. I enjoy solving technical problems, supporting users, analyzing data to improve workflows, and learning new tools that enhance digital operations.
+
+I bring experience from academic and health environments, where I supported systems, trained users, conducted research, and contributed to digital project initiatives. I am seeking opportunities in tech support, systems operations, data, and cybersecurity while growing into a versatile tech professional.            </p>
+            <div class="mt-6 grid grid-cols-2 gap-4 text-sm">
+              <div class="stat-card"><span class="stat-value">3+</span><span class="stat-label">Years Experience</span></div>
+              <div class="stat-card"><span class="stat-value">10+</span><span class="stat-label">Projects Completed</span></div>
+              <div class="stat-card"><span class="stat-value">4</span><span class="stat-label">Leadership Roles</span></div>
+              <div class="stat-card"><span class="stat-value">50+</span><span class="stat-label">Students Mentored</span></div>
+            </div>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="card">
+              <h3 class="card-title"><i class="fa-solid fa-brain mr-2"></i>AI & Machine Learning</h3>
+              <p class="card-text">Research and application of ML models in cybersecurity and predictive analytics.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title"><i class="fa-solid fa-code mr-2"></i>Web Development</h3>
+              <p class="card-text">Front-End development with modern frameworks and responsive design.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title"><i class="fa-solid fa-chart-line mr-2"></i>Data Analysis</h3>
+              <p class="card-text">Data visualization with Power BI, research methodology, and  analysis.</p>
+            </div>
+            <div class="card">
+              <h3 class="card-title"><i class="fa-solid fa-users mr-2"></i>Leadership</h3>
+              <p class="card-text">Team coordination, project management, and STEM education mentorship.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-text">A snapshot of tools and technologies I work with regularly.</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="skill">Python Programming</span>
+          <span class="skill">Machine Learning</span>
+          <span class="skill">Artificial Intelligence</span>
+          <span class="skill">Cybersecurity Fundamentals & Research</span>
+          <span class="skill">Web Development</span>
+          <span class="skill">HTML/CSS</span>
+          <span class="skill">Google Play Console Management</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Data Visualization & Annotation</span>
+          <span class="skill">MS Office</span>
+          <span class="skill">Data Analysis</span>
+          <span class="skill">Research & Documentation</span>
+          <span class="skill">App Publishing and Testing</span>
+          <span class="skill">IT Services & Maintenance</span>
+          <span class="skill">Project Management</span>
+          <span class="skill">Team Leadership & Collaboration</span>
+          <span class="skill">User support & Staff Training</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-text">A selection of projects that showcase my capabilities and interests.</p>
+          </div>
+          <a href="#" class="text-brand-600 hover:underline dark:text-brand-400">View all</a>
+        </div>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Project card 1 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="C:\Users\NKETIA JEFFRED\OneDrive - KUMASI TECHNICAL UNIVERSITY\Desktop\potfolio\app.jpg" alt="SRC Mobile App"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p1"><i class="fa-solid fa-circle-info mr-2"></i>Details</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold">Student Resource Connect (SRC)</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Mobile application successfully scaled for institutional adoption at KSTU.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">Mobile Dev</span><span class="tag">Product Management</span><span class="tag">UI/UX</span>
+              </div>
+            </div>
+          </article>
+          <!-- Project card 2 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="ML Cybersecurity"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p2">Details</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold">ML for Malicious URL Detection</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Machine learning models for detecting malicious URLs in cybersecurity (Undergraduate Research).</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Cybersecurity</span>
+              </div>
+            </div>
+          </article>
+          <!-- Project card 3 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" alt="Hotel Booking System"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p3">Details</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold">Hotel Booking System</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Customized digital solution for White House Hostel with booking management.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">Web Dev</span><span class="tag">Database</span><span class="tag">Full Stack</span>
+              </div>
+            </div>
+          </article>
+          <!-- Project card 4 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1200&auto=format&fit=crop" alt="QR Attendance"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p4">Details</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold">QR Code Attendance Tracker</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Digital attendance system used for 50+ participants in KSTU-GSDF Campaign 2025.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">QR Technology</span><span class="tag">Web App</span><span class="tag">Real-time</span>
+              </div>
+            </div>
+          </article>
+          <!-- Project card 5 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop" alt="SEL Research"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p5">Details</button>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold">SEL Academic Performance Prediction</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Predictive analysis of Social and Emotional Learning impact on student outcomes.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">Data Science</span><span class="tag">Predictive Analytics</span><span class="tag">Research</span>
+              </div>
+            </div>
+          </article>
+
+           <!-- Project card 6 -->
+           <article class="project-card">
+            <div class="project-media">
+              <img src="https://images.unsplash.com/photo-1678225867994-e7a5b071ebfd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2340" alt="Campus Robotics"/>
+              <div class="project-overlay">
+                <button class="btn-secondary btn-sm" data-project="p6">Details</button>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-semibold">Nextbrain Engineering & Robotics Club</h3>
+              <p class="mt-1 text-sm text-slate-600 dark:text-slate-400">Campus Robotics & Tech Club Leadership, as a measure of promoting STEM Education.</p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="tag">Improving lives</span><span class="tag">Promoting Innovations through STEM Education</span><span class="tag">Research</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Experience</h2>
+        <div class="mt-8 relative border-l border-slate-200 dark:border-slate-800 pl-6">
+          <div class="timeline-dot"></div>
+          <div class="mb-10">
+            <h3 class="text-lg font-semibold">Research Assistant (NSS Personnel) • IRID, Kumasi Technical University</h3>
+            <p class="text-sm text-slate-500">2023 — 2025</p>
+            <ul class="mt-3 list-disc pl-5 text-slate-600 dark:text-slate-300">
+              <li>Assisted the director in carrying out research activities and preparing lecture notes.</li>
+              <li>Conducted data collection, entry, analysis, and reporting for research projects.</li>
+              <li>Organized tutorial sections and provided IT services at the Institute.</li>
+            </ul>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="mb-10">
+            <h3 class="text-lg font-semibold">Enumerator • Ghana National Households Registration (GNHR)</h3>
+            <p class="text-sm text-slate-500">September 2023 — November 2023</p>
+            <ul class="mt-3 list-disc pl-5 text-slate-600 dark:text-slate-300">
+              <li>Collected accurate and reliable data from survey participants.</li>
+              <li>Verified the authenticity and accuracy of information provided by respondents.</li>
+              <li>Followed established protocols, guidelines, and ethical standards throughout data collection.</li>
+            </ul>
+          </div>
+          <div class="timeline-dot"></div>
+          <div>
+            <h3 class="text-lg font-semibold">IT Consultant (Intern) • Kade Government Hospital</h3>
+            <p class="text-sm text-slate-500">2021</p>
+            <ul class="mt-3 list-disc pl-5 text-slate-600 dark:text-slate-300">
+              <li>Involved in data input and processes to identify and correct errors in datasets.</li>
+              <li>Offered support to hospital staff on various systems and software tools.</li>
+              <li>Assisted in training healthcare staff on the LHIMS Hospital management system.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="mt-8">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="testimonial">
+                  <p>"Jeffred demonstrates exceptional research skills and dedication. His ability to collect, analyze, and report data with precision has been invaluable to our institute. A reliable and innovative team member."</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/100?img=11" alt="Prof. Smart A. Sarpong" />
+                    <div>
+                      <div class="font-medium">Prof. Smart A. Sarpong</div>
+                      <div class="text-sm text-slate-500">Director, IRID, Kumasi Technical University</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial">
+                  <p>"An outstanding student with remarkable technical aptitude and leadership qualities. Jeffred's passion for AI/ML and his commitment to mentoring peers sets him apart as a future innovator in technology."</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/100?img=12" alt="Dr. Evans Kotei" />
+                    <div>
+                      <div class="font-medium">Dr. Evans Kotei</div>
+                      <div class="text-sm text-slate-500">Lecturer, Department of Computer Science, KSTU</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="testimonial">
+                  <p>"Jeffred successfully led the development of the SRC Mobile App, demonstrating excellent product management skills and technical execution. His ability to scale solutions for institutional adoption is impressive."</p>
+                  <div class="mt-4 flex items-center gap-3">
+                    <img class="h-10 w-10 rounded-full" src="https://i.pravatar.cc/100?img=13" alt="Recognition" />
+                    <div>
+                      <div class="font-medium">KSTU Recognition Committee</div>
+                      <div class="text-sm text-slate-500">Certificate of Honor, SRC App Development</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container" data-aos="fade-up">
+        <div class="grid gap-10 md:grid-cols-2">
+          <div>
+            <h2 class="section-title">Let's work together</h2>
+            <p class="section-text">Have a project in mind or just want to say hi? Drop me a message and I'll get back to you soon.</p>
+            <div class="mt-6 space-y-3 text-sm">
+              <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-brand-600"></i><span>nketiajeffred@gmail.com</span></div>
+              <div class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-brand-600"></i><span>Kumasi, Ghana</span></div>
+              <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-brand-600"></i><span>+233 543 194 406</span></div>
+            </div>
+          </div>
+          <form class="card space-y-4" action="https://formsubmit.co/nketiajeffred@gmail.com" method="POST">
+            <!-- Form submissions will be sent to nketiajeffred@gmail.com -->
+            <input type="hidden" name="_next" value="/thank-you.html" />
+            <div>
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div>
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full md:w-auto"><i class="fa-solid fa-paper-plane mr-2"></i>Send Message</button>
+            <p class="text-xs text-slate-500">By submitting, you agree to my privacy policy and terms.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 py-10 dark:border-slate-800">
+      <div class="container flex flex-col items-center justify-between gap-6 md:flex-row">
+        <div class="text-sm text-slate-500">© <span id="year"></span> Nketia Jeffred Atta Owusu. All rights reserved.</div>
+        <div class="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+          <a href="#" aria-label="GitHub" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-github text-lg"></i></a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-linkedin text-lg"></i></a>
+          <a href="#" aria-label="Twitter" class="hover:text-brand-600 dark:hover:text-brand-400"><i class="fa-brands fa-x-twitter text-lg"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Project Modals (example) -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4">
+      <div class="max-w-2xl w-full rounded-2xl bg-white p-6 shadow-xl dark:bg-slate-900">
+        <div class="flex items-center justify-between">
+          <h3 id="projectTitle" class="text-xl font-semibold">Project Title</h3>
+          <button id="modalClose" class="rounded-lg p-2 hover:bg-slate-100 dark:hover:bg-slate-800"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <p id="projectDesc" class="mt-2 text-slate-600 dark:text-slate-300">Description...</p>
+        <div class="mt-4 flex flex-wrap gap-2 text-xs" id="projectTags"></div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
